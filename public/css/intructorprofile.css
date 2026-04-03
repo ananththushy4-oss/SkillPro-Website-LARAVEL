@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --primary-green: #008851;
+    --secondary-green: #00c978;
+    --green-gradient: linear-gradient(to right, #008851, #00c978); /* Added for consistency */
+    --hover-color: #00a060; /* Added from the first file for hover effect */
+    --dark-heading: #0d2c1e;
+    --text-color: #333;
+    --light-gray: #f8f9fa;
+    --medium-gray: #ccc;
+    --white: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-gray);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-bottom: 50px;
+}
+
+/* ===== Navbar Styles (Updated as requested) ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark-heading);
+    background: var(--green-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 1rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark-heading);
+    font-weight: 600;
+    transition: color 0.3s ease;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav-links a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: var(--green-gradient);
+    transition: width 0.4s ease;
+    -webkit-transition: width 0.4s ease;
+}
+
+.nav-links a:hover:after {
+    width: 100%;
+    left: 0;
+    background: var(--green-gradient);
+}
+
+.nav-links a:hover {
+    color: var(--hover-color); /* CHANGED */
+}
+
+.nav-links a.active {
+    color: var(--hover-color); /* CHANGED */
+}
+
+.nav-links a.active:after {
+    width: 100%;
+    left: 0;
+    background: var(--green-gradient);
+}
+
+.login-btn {
+    padding: 0.75rem 2rem;
+    background: var(--green-gradient);
+    color: var(--white);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Media Queries for Navbar Responsiveness ===== */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+
+    .login-btn {
+        margin-top: 1rem;
+        width: 100%;
+    }
+}
+
+/* ===== Registration Container ===== */
+.registration-container {
+    width: 90%;
+    max-width: 550px;
+    background-color: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    border: 2px solid var(--primary-green);
+    margin-top: 120px; /* add space to avoid navbar overlap */
+}
+
+.registration-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.registration-header h2 {
+    font-size: 2rem;
+    color: var(--dark-heading);
+    margin-bottom: 0.5rem;
+}
+
+.profile-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-green);
+    margin-bottom: 1rem;
+    object-fit: cover;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.icon-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--primary-green);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    background-color: var(--light-gray);
+    position: relative;
+}
+
+.icon-input input,
+.icon-input textarea {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+}
+
+textarea {
+    resize: none;
+    height: 80px;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(to right, var(--primary-green), var(--secondary-green));
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 136, 81, 0.2);
+    margin-top: 1rem;
+}
+
+.btn-primary:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.btn-primary:hover:enabled {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 136, 81, 0.3);
+}
+
+/* ===== Popup ===== */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: var(--white);
+    border: 2px solid var(--primary-green);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    text-align: center;
+    display: none;
+    z-index: 1000;
+    max-width: 350px;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.popup.active {
+    display: block;
+}
+
+.popup h3 {
+    color: var(--dark-heading);
+    margin-bottom: 1rem;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translate(-50%, -50%) scale(0.8);}
+    to {opacity: 1; transform: translate(-50%, -50%) scale(1);}
+}
+
+.logout-btn {
+    color: #d32f2f; /* red color */
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.3rem 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.logout-btn:hover {
+    color: #f44336;
+}
+
+.nav-links .btn-primary.logout-btn {
+    padding: 0.4rem 1rem;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    margin-left: 0.5rem;
+    box-shadow: 0 5px 10px rgba(0, 136, 81, 0.2);
+}
+
+.nav-links .btn-primary.logout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 136, 81, 0.3);
+}

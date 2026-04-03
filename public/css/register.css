@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --primary-green: #008851;
+    --secondary-green: #00c978;
+    --dark-heading: #0d2c1e;
+    --text-color: #333;
+    --light-gray: #f8f9fa;
+    --medium-gray: #ccc;
+    --white: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-gray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.registration-container {
+    width: 90%;
+    max-width: 500px;
+    background-color: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    border: 2px solid var(--primary-green);
+}
+
+.registration-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.registration-header .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.registration-header .logo-image {
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+}
+
+.registration-header .logo-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(to right, var(--primary-green), var(--secondary-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.registration-header h2 {
+    font-size: 2rem;
+    color: var(--dark-heading);
+    margin-bottom: 0.5rem;
+}
+
+.registration-header p {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.registration-form .form-group {
+    margin-bottom: 1.2rem;
+}
+
+.icon-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--primary-green);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    background-color: var(--light-gray);
+    transition: all 0.3s ease;
+    /* Added this line to fix the password icon positioning */
+    position: relative; 
+}
+
+.icon-input:focus-within {
+    border-color: var(--primary-green);
+    box-shadow: 0 0 5px rgba(0, 136, 81, 0.2);
+}
+
+.icon-input i {
+    color: var(--primary-green);
+    margin-right: 1rem;
+}
+
+.icon-input input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+}
+
+/* This targets the input field specifically */
+.icon-input input:focus {
+    text-decoration: none;
+}
+
+/* Styles for the password toggle icon */
+.password-field .toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--medium-gray);
+    text-decoration: none;
+    /* Removed the border from the span as it was causing issues */
+    border: none;
+}
+.password-field .toggle-password i {
+    text-decoration: none; /* Ensures no strike-through on the icon */
+}
+
+.role-selection {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.role-selection label {
+    font-weight: 600;
+    color: var(--dark-heading);
+    margin-right: 1rem;
+}
+
+.role-selection select {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--primary-green);
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(to right, var(--primary-green), var(--secondary-green));
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 136, 81, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 136, 81, 0.3);
+}
+
+.login-link {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.login-link a {
+    color: var(--primary-green);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.login-link a:hover {
+    color: var(--secondary-green);
+}
