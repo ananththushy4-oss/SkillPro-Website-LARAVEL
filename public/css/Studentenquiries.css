@@ -1,0 +1,740 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --background-color: #f8f9fa;
+    --text-color: #333;
+    --heading-color: #0d2c1e;
+    --green-gradient: linear-gradient(to right, #008851, #00c978);
+    --hover-color: #00a060;
+
+    /* Added variables for the announcements section */
+    --primary: #00c978;
+    --dark: #004d40;
+    --light: #f9f9f9;
+    --accent: #00bfa5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+/* ===== Navbar ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    background: var(--green-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 1rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--heading-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav-links a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: var(--green-gradient);
+    transition: width 0.4s ease;
+}
+
+.nav-links a:hover:after {
+    width: 100%;
+    left: 0;
+    background: var(--green-gradient);
+}
+
+.nav-links a:hover {
+    color: var(--hover-color);
+}
+
+.nav-links a.active {
+    color: var(--hover-color);
+}
+
+.nav-links a.active:after {
+    width: 100%;
+    left: 0;
+    background: var(--green-gradient);
+}
+
+.login-btn {
+    padding: 0.75rem 2rem;
+    background: var(--green-gradient);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Hero Section (Generic) ===== */
+.hero-section {
+    position: relative;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    background: url('https://images.unsplash.com/photo-1484417894907-623942c8ee29?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cHJvZ3JhbW1pbmd8ZW58MHx8MHx8fDA%3D') center/cover no-repeat;
+    overflow: hidden;
+    animation: zoomBackground 12s ease-in-out infinite alternate;
+}
+
+.hero-section .overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(2px);
+    z-index: 0;
+    animation: fadeInOverlay 1.5s ease-in-out forwards;
+}
+
+.hero-section .hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 0 1rem;
+    animation: fadeInUp 1.5s ease forwards;
+}
+
+.hero-section h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: var(--green-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 0px 10px rgba(0, 255, 180, 0.4);
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #eee;
+}
+
+/* ===== New Modern Enquiry Layout ===== */
+.enquiry-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: url('https://images.unsplash.com/photo-1584697964403-5e8f68e8d0a3?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    background-attachment: fixed;
+    padding: 3rem 5%;
+    position: relative;
+    overflow: hidden;
+}
+
+.enquiry-container::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(102, 130, 104, 0.6);
+    z-index: 0;
+}
+
+.contact-left {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    margin: 1rem;
+    animation: fadeInUp 1.2s ease both;
+    color: #fff;
+}
+
+.contact-left h3 {
+    color: #00ff99;
+    margin-bottom: 0.3rem;
+}
+
+.map-box {
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    animation: slideInLeft 1s ease both;
+}
+
+.info-box {
+    background: rgba(255,255,255,0.1);
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.info-box:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.2);
+}
+
+/* Overriding standalone .enquiry-section for the flexbox layout */
+.enquiry-container .enquiry-section {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    margin: 1rem;
+    animation: slideInRight 1s ease both;
+    max-width: none; /* remove max-width for flex item */
+}
+
+
+/* ===== Enquiry Form Section (Standalone) ===== */
+.enquiry-section {
+    max-width: 700px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.enquiry-section h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    background: var(--green-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.enquiry-section p {
+    margin-bottom: 2rem;
+    color: var(--secondary-color);
+    font-size: 1rem;
+}
+
+form .form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--heading-color);
+}
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    border-color: var(--green-gradient);
+    box-shadow: 0 0 10px rgba(0,200,120,0.2);
+    outline: none;
+}
+
+.submit-btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: var(--green-gradient);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #008851;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* ===== FAQ Section ===== */
+.faq-section {
+    padding: 3rem 5%;
+    background: #fff;
+    max-width: 900px;
+    margin: 2rem auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+.faq-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    background: var(--green-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.faq-item {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 1rem;
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    cursor: pointer;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question:hover {
+    color: var(--hover-color);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    padding: 0 1rem;
+    color: var(--secondary-color);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px;
+    padding: 1rem;
+}
+
+.plus {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .plus {
+    transform: rotate(45deg);
+    color: var(--hover-color);
+}
+
+
+/* ===== Announcements Section (Existing) ===== */
+section.announcements h2 {
+    text-align: center;
+    margin: 2rem 0;
+    color: var(--dark);
+    font-size: 2rem;
+}
+
+.announcements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+    padding: 0 1rem;
+}
+
+.announcement-card {
+    background: #fff;
+    padding: 1.2rem 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.announcement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.announcement-card h3 {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.announcement-card p {
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.4;
+    margin-bottom: 0.8rem;
+}
+
+.announcement-card .date {
+    font-size: 0.85rem;
+    color: #888;
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-weight: 500;
+}
+
+/* ===== Hero Section (News Page) ===== */
+.hero-section-news {
+    position: relative;
+    height: 250px;
+    background: url('https://img.freepik.com/free-vector/hand-drawn-announcement-background_23-2151130566.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    animation: zoomBackground 12s ease-in-out infinite alternate;
+}
+
+.hero-section-news .overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(2px);
+    z-index: 0;
+}
+
+.hero-section-news .hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section-news h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: var(--green-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-section-news p {
+    color: #eee;
+}
+
+/* ===== News & Events Section ===== */
+.news-events-section {
+    padding: 3rem 5%;
+    background: url('https://images.unsplash.com/photo-1596496053159-27a150d86f85?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    background-color: #f3f8f0; /* fallback color */
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.news-events-section::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(143, 228, 138, 0.3);
+    z-index: 0;
+    border-radius: 15px;
+}
+
+.container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.news-list {
+    flex: 2;
+    display: grid;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== Animated News/Event Cards ===== */
+.news-card {
+    background: rgba(255,255,255,0.95);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.6s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    animation: fadeSlideUp 1s ease forwards;
+}
+
+.news-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(120deg, rgba(0,200,120,0.08), rgba(0,200,255,0.08));
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: 12px;
+}
+
+.news-card:hover::before {
+    opacity: 1;
+}
+
+.news-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0,200,120,0.25);
+}
+
+.news-card .news-date {
+    font-weight: 600;
+    color: var(--hover-color);
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+    transition: color 0.4s ease;
+}
+
+.news-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--heading-color);
+    position: relative;
+    z-index: 1;
+}
+
+.news-card:hover .news-date {
+    color: #00FFC2;
+}
+
+.news-card:nth-child(1) { animation-delay: 0.1s; }
+.news-card:nth-child(2) { animation-delay: 0.2s; }
+.news-card:nth-child(3) { animation-delay: 0.3s; }
+.news-card:nth-child(4) { animation-delay: 0.4s; }
+.news-card:nth-child(5) { animation-delay: 0.5s; }
+.news-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* ===== Calendar Sidebar ===== */
+.calendar-sidebar {
+    flex: 1;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    height: fit-content;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.calendar-sidebar:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,200,120,0.2);
+}
+
+.calendar-sidebar h3 {
+    margin-bottom: 1rem;
+    background: var(--green-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.4rem;
+}
+
+.calendar-sidebar input[type="date"] {
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.calendar-sidebar input[type="date"]:hover,
+.calendar-sidebar input[type="date"]:focus {
+    border-color: var(--green-gradient);
+    box-shadow: 0 0 10px rgba(0,200,120,0.2);
+    outline: none;
+}
+
+/* ===== Footer ===== */
+footer {
+    background: #0d2c1e;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+/* ===== Keyframe Animations ===== */
+@keyframes zoomBackground {
+    0% { background-size: 100% auto; }
+    100% { background-size: 110% auto; }
+}
+
+@keyframes fadeSlideUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInOverlay {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeInUp {
+    from {opacity: 0; transform: translateY(30px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes slideInLeft {
+    from {opacity: 0; transform: translateX(-60px);}
+    to {opacity: 1; transform: translateX(0);}
+}
+
+@keyframes slideInRight {
+    from {opacity: 0; transform: translateX(60px);}
+    to {opacity: 1; transform: translateX(0);}
+}
+
+/* Animation for appearing cards */
+.announcement-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.6s forwards;
+}
+.announcement-card:nth-child(1) { animation-delay: 0.1s; }
+.announcement-card:nth-child(2) { animation-delay: 0.2s; }
+.announcement-card:nth-child(3) { animation-delay: 0.3s; }
+.announcement-card:nth-child(4) { animation-delay: 0.4s; }
+.announcement-card:nth-child(5) { animation-delay: 0.5s; }
+.announcement-card:nth-child(6) { animation-delay: 0.6s; }
+
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 900px) {
+    /* News Page */
+    .container { flex-direction: column; }
+    .news-list { order: 2; }
+    .calendar-sidebar { order: 1; margin-bottom: 2rem; }
+
+    /* Enquiry Page */
+    .enquiry-container {
+      flex-direction: column;
+      background-attachment: scroll;
+    }
+    .enquiry-container .enquiry-section, .contact-left {
+      margin: 1rem 0;
+      width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navbar */
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+    }
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+    .login-btn {
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    /* Enquiry Form */
+    .enquiry-section {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        height: 280px;
+    }
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    .hero-section p {
+        font-size: 1rem;
+    }
+}

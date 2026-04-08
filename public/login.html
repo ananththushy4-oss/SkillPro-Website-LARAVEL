@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SkillPro Institute</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="background-image" id="role-background"></div>
+        <div class="login-form-wrapper">
+            <div class="login-header">
+                <div class="logo">
+                    <img src="SkillEdge.jpg" alt="SkillPro Logo" class="logo-image">
+                    <span class="logo-text">SkillPro Institute</span>
+                </div>
+                <h2>Welcome Back!</h2>
+                <p>Please select your role and log in to continue.</p>
+            </div>
+
+            <div class="role-selection">
+                <button class="role-btn active" data-role="student">Student</button>
+                <button class="role-btn" data-role="admin">Admin</button>
+                <button class="role-btn" data-role="instructor">Instructor</button>
+            </div>
+
+            <form class="login-form" action="login.php" method="POST">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-field">
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                        <span class="toggle-password" onclick="togglePasswordVisibility()"><i class="far fa-eye"></i></span>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="btn-primary">Sign In</button>
+                <div class="signup-link">
+                    Don't have an account? <a href="register.html">Sign Up</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

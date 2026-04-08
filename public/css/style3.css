@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* === CONSOLIDATED ROOT VARIABLES === */
+/* Using the green theme that matches the dashboard design */
+:root {
+    --primary-color: #008851; /* Main green */
+    --secondary-color: #6c757d; /* Grey for text */
+    --background-color: #f8f9fa;
+    --text-color: #333;
+    --heading-color: #0d2c1e; /* Dark green for headings */
+    --green-gradient: linear-gradient(to right, #008851, #00c978);
+    --hover-color: #00a060; /* Slightly lighter green for hover */
+    --dark: #004d40;
+    --light: #f9f9f9;
+}
+
+/* === GLOBAL STYLES === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+section h2 {
+    text-align: center;
+    margin: 2rem 0;
+    color: var(--dark);
+    font-size: 2rem;
+}
+
+/* === NAVBAR === */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    background: var(--green-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 1rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--heading-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav-links a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: var(--green-gradient);
+    transition: width 0.4s ease;
+}
+
+.nav-links a:hover:after {
+    width: 100%;
+    left: 0;
+    background: var(--green-gradient);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--hover-color);
+}
+
+.nav-links a.active:after {
+    width: 100%;
+    left: 0;
+    background: var(--green-gradient);
+}
+
+.login-btn {
+    padding: 0.75rem 2rem;
+    background: var(--green-gradient);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* === DASHBOARD HERO SECTION === */
+.hero-section-dashboard {
+    height: 200px;
+    background: var(--green-gradient);
+    display: flex;
+    flex-direction: column; /* To stack h1 and p */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 12px;
+    margin: 2rem 5%;
+    color: #fff;
+    padding: 1rem;
+}
+
+.hero-section-dashboard h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-section-dashboard p {
+    font-size: 1.1rem;
+}
+
+/* === CAROUSEL SECTIONS (FOR COURSES & EVENTS) === */
+.carousel-section {
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+}
+
+.carousel-wrapper {
+    overflow: hidden;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative; /* For potential pause-on-hover effect */
+}
+
+.carousel-track {
+    display: flex;
+    gap: 1rem;
+    animation: slide 30s linear infinite; /* Increased duration for smoother scroll */
+}
+
+.carousel-wrapper:hover .carousel-track {
+    animation-play-state: paused; /* Pause animation on hover */
+}
+
+
+.course-card,
+.event-card {
+    min-width: 280px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover,
+.event-card:hover {
+    transform: translateY(-5px);
+}
+
+.course-card img,
+.event-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+}
+
+.course-card h3,
+.event-card h3 {
+    color: var(--heading-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.course-card p {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* This requires duplicating cards in HTML */
+    }
+}
+
+/* === OUR PROGRAMS SECTION === */
+.programs {
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+}
+
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.program-card {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.program-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.program-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+}
+
+.program-card h3 {
+    color: var(--heading-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* === JOB OPPORTUNITIES SECTION === */
+.jobs {
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+}
+
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.job-card {
+    background: #fff;
+    padding: 1.5rem; /* More padding for a cleaner look */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.job-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.job-card p {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+}
+
+/* === RESPONSIVE STYLES === */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        text-align: left;
+        margin-top: 1rem;
+    }
+
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+
+    #logout-form {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .login-btn {
+        width: 100%;
+    }
+
+    .hero-section-dashboard h1 {
+        font-size: 2rem;
+    }
+}
